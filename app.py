@@ -24,15 +24,41 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
-    /* Force light mode */
-    html, body, [data-testid="stAppViewContainer"], [data-testid="stSidebar"] {
+    /* Force light mode across entire app */
+    html, body {
         background-color: #ffffff !important;
         color: #000000 !important;
     }
     [data-testid="stAppViewContainer"] {
         background-color: #ffffff !important;
     }
-    .stMarkdown, .stTextInput, .stTextArea, .stSelectbox {
+    [data-testid="stSidebar"] {
+        background-color: #ffffff !important;
+    }
+    /* Style all input fields */
+    input, textarea, select {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #cccccc !important;
+    }
+    .stTextInput input, .stTextArea textarea, .stSelectbox select {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    /* Override Streamlit elements */
+    [data-testid="stTextInput"] input {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    [data-testid="stTextArea"] textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    /* Fix sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #ffffff !important;
+    }
+    section[data-testid="stSidebar"] div {
         background-color: #ffffff !important;
     }
     .main-header {
