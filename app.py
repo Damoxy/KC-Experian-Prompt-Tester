@@ -24,16 +24,24 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
+    /* Force light backgrounds */
+    html, body {
+        background-color: #ffffff !important;
+    }
     .main-header {
-        color: #000000;
+        color: #000000 !important;
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
+        background-color: #ffffff !important;
+        padding: 1rem !important;
     }
     .sub-header {
-        color: #5A6C7D;
+        color: #5A6C7D !important;
         font-size: 1rem;
         margin-bottom: 2rem;
+        background-color: #ffffff !important;
+        padding: 0.5rem !important;
     }
     .prompt-section {
         background-color: #f8f9fa;
