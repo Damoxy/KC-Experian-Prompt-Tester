@@ -115,13 +115,21 @@ with col1:
     # Get the current prompt
     current_prompt = CATEGORY_PROMPTS[selected_category]
     
+    # Initialize session state for the prompt if not exists
+    if f"prompt_{selected_category}" not in st.session_state:
+        st.session_state[f"prompt_{selected_category}"] = current_prompt
+    
     # Editable prompt area
     edited_prompt = st.text_area(
         "Prompt Template",
-        value=current_prompt,
+        value=st.session_state[f"prompt_{selected_category}"],
         height=400,
+        key=f"prompt_textarea_{selected_category}",
         help="Edit the prompt template. Use {full_name}, {city}, {state} as variables."
     )
+    
+    # Update session state with edited prompt
+    st.session_state[f"prompt_{selected_category}"] = edited_prompt
 
 with col2:
     st.header(f"{model} Response")
@@ -140,7 +148,7 @@ with col2:
 
 # Handle reset button
 if reset_btn:
-    st.session_state.edited_prompt = CATEGORY_PROMPTS[selected_category]
+    st.session_state[f"prompt_{selected_category}"] = CATEGORY_PROMPTS[selected_category]
     st.rerun()
 
 # Handle generate button
