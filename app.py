@@ -17,7 +17,6 @@ load_dotenv(dotenv_path=env_path)
 # Page configuration
 st.set_page_config(
     page_title="Prompt Tester - KC IQ Search",
-    page_icon="🧪",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -25,6 +24,17 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
+    /* Force light mode */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stSidebar"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    [data-testid="stAppViewContainer"] {
+        background-color: #ffffff !important;
+    }
+    .stMarkdown, .stTextInput, .stTextArea, .stSelectbox {
+        background-color: #ffffff !important;
+    }
     .main-header {
         color: #2E3B55;
         font-size: 2.5rem;
@@ -113,7 +123,7 @@ api_key = os.getenv("OPENROUTER_API_KEY", "")
 col1, col2 = st.columns([1, 1], gap="medium")
 
 with col1:
-    st.header("✏️ Edit Prompt")
+    st.header("Edit Prompt")
     
     # Get the current prompt
     current_prompt = CATEGORY_PROMPTS[selected_category]
@@ -127,7 +137,7 @@ with col1:
     )
 
 with col2:
-    st.header(f"📥 {model} Response")
+    st.header(f"{model} Response")
     response_placeholder = st.empty()
 
 # Generate response section
