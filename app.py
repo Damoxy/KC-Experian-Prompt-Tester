@@ -24,43 +24,6 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
-    /* Force light mode across entire app */
-    html, body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
-    [data-testid="stAppViewContainer"] {
-        background-color: #ffffff !important;
-    }
-    [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-    }
-    /* Style all input fields */
-    input, textarea, select {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #cccccc !important;
-    }
-    .stTextInput input, .stTextArea textarea, .stSelectbox select {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
-    /* Override Streamlit elements */
-    [data-testid="stTextInput"] input {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
-    [data-testid="stTextArea"] textarea {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
-    /* Fix sidebar styling */
-    section[data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-    }
-    section[data-testid="stSidebar"] div {
-        background-color: #ffffff !important;
-    }
     .main-header {
         color: #2E3B55;
         font-size: 2.5rem;
@@ -97,7 +60,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title
-st.markdown('<p class="main-header">🧪 KC Experian Prompt Tester</p>', unsafe_allow_html=True)
+st.markdown('<p class="main-header">KC Experian Prompt Tester</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Test and modify AI prompts for KC ProspectIQ Search</p>', unsafe_allow_html=True)
 
 # Sidebar configuration
