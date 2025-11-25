@@ -24,24 +24,16 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
-    /* Force light backgrounds */
-    html, body {
-        background-color: #ffffff !important;
-    }
     .main-header {
         color: #000000 !important;
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        background-color: #ffffff !important;
-        padding: 1rem !important;
     }
     .sub-header {
         color: #5A6C7D !important;
         font-size: 1rem;
         margin-bottom: 2rem;
-        background-color: #ffffff !important;
-        padding: 0.5rem !important;
     }
     .prompt-section {
         background-color: #f8f9fa;
@@ -51,8 +43,6 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .response-section {
-        background-color: #e8f5e9;
-        border-left: 4px solid #4caf50;
         padding: 1.5rem;
         border-radius: 0.5rem;
         margin-top: 1.5rem;
