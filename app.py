@@ -25,7 +25,7 @@ st.set_page_config(
 st.markdown("""
     <style>
     .main-header {
-        color: #2E3B55;
+        color: #000000;
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
@@ -127,7 +127,7 @@ with col1:
 
 with col2:
     st.header(f"{model} Response")
-    response_placeholder = st.empty()
+    response_container = st.container()
 
 # Generate response section
 st.markdown("---")
@@ -190,7 +190,7 @@ if generate_btn:
                         ai_response = data['choices'][0]['message']['content']
                         
                         # Display the response in the right column
-                        with response_placeholder.container():
+                        with response_container:
                             st.markdown('<div class="response-section">', unsafe_allow_html=True)
                             st.markdown(ai_response)
                             st.markdown('</div>', unsafe_allow_html=True)
@@ -198,24 +198,24 @@ if generate_btn:
                     else:
                         error_data = response.json()
                         error_msg = error_data.get('error', {}).get('message', 'Unknown error')
-                        with response_placeholder.container():
+                        with response_container:
                             st.markdown('<div class="error-section">', unsafe_allow_html=True)
                             st.error(f"❌ API Error: {error_msg}")
                             st.markdown('</div>', unsafe_allow_html=True)
                 
                 except requests.exceptions.Timeout:
-                    with response_placeholder.container():
+                    with response_container:
                         st.markdown('<div class="error-section">', unsafe_allow_html=True)
                         st.error("❌ Request timeout. The API took too long to respond.")
                         st.markdown('</div>', unsafe_allow_html=True)
                 except requests.exceptions.RequestException as e:
-                    with response_placeholder.container():
+                    with response_container:
                         st.markdown('<div class="error-section">', unsafe_allow_html=True)
                         st.error(f"❌ Request failed: {str(e)}")
                         st.markdown('</div>', unsafe_allow_html=True)
         
         except KeyError as e:
-            with response_placeholder.container():
+            with response_container:
                 st.markdown('<div class="error-section">', unsafe_allow_html=True)
                 st.error(f"❌ Prompt formatting error: Missing variable {e}. Use {{full_name}}, {{city}}, {{state}}.")
                 st.markdown('</div>', unsafe_allow_html=True)
